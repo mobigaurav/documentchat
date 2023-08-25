@@ -3,4 +3,4 @@ langchain
 openai
 pypdf
 tiktoken
-faiss
+faiss-gpu
