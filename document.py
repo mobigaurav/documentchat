@@ -85,27 +85,36 @@ def test_embed():
 
 
 # Set up the Streamlit app
-#st.title("🤖 This is a Bot with Memory 🧠 ")
+st.title("🤖 This is a Bot with Memory 🧠 ")
 st.markdown(
     """ 
-        ####  🗨️ Chat with your product documents 📜 with `Conversational Buffer`  
+        ####  🗨️ Chat with your product documents 📜 in 3 easy steps:  
         """
 )
-
-
-# Set up the sidebar
-st.sidebar.markdown(
-    """
-    ### Steps:
-    1. Upload PDF File
-    2. Enter Your OPEN AI API key
-    3. Perform Q&A
-
-    **Note : File content and API key not stored in any form.**
-    """
-)
+st.markdown("Step 1: Upload PDF File")
+st.write("Step 2: Enter Your OPEN AI API key from here: [OPEN AI](https://platform.openai.com/account/api-keys)")
+st.markdown("Step 3: Perform Q&A")
+st.markdown("**Note : File content and API key not stored in any form.**""")
 st.divider()
+# Set up the sidebar
+# st.sidebar.markdown(
+#     """
+#     ### How to use:
+#     1. Find your product document E.g.- xyz_user_guide.pdf
+#     Upload or Drag/drop this document from your computer
+#     Enter your OPEN AI API Key
+#     """
+# )
+# st.sidebar.markdown(
+#     """
+#     ### Steps:
+#     1. Upload PDF File
+#     2. Enter Your Secret Key for Embeddings
+#     3. Perform Q&A
 
+#     **Note : File content and API key not stored in any form.**
+#     """
+# )
 # Allow the user to upload a PDF file
 uploaded_file = st.file_uploader("**Upload Your PDF File**", type=["pdf"])
 
@@ -186,7 +195,7 @@ if uploaded_file:
                     "Generating Answer to your Query : `{}` ".format(query)
                 ):
                     res = agent_chain.run(query)
-                    st.snow()
+                    #st.snow()
                     st.info(res, icon="🤖")
 
             # Allow the user to view the conversation history and other information stored in the agent's memory
