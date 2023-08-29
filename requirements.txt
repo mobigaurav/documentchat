@@ -4,3 +4,4 @@ openai
 pypdf
 tiktoken
 faiss-gpu
+streamlit_analytics
